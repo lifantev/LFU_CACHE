@@ -17,6 +17,18 @@ namespace CACHE
         return val;
     }
 
+    int LFUCache::SoftGet(int key)
+    {
+        int val = -1;
+
+        if (kv_.find(key) != kv_.end())
+        {
+            val = kv_[key].second->second;
+        }
+
+        return val;
+    }
+
     void LFUCache::Set(int key, int val)
     {
         if (capacity_ <= 0)
@@ -73,6 +85,7 @@ namespace CACHE
         if (f->vals.empty())
             cache_.erase(f);
     }
+    
     std::pair<LFUCache::frq_itr, LFUCache::val_itr> LFUCache::Insert(int key, int val)
     {
         frq_itr f = cache_.begin();

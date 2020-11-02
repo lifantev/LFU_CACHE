@@ -28,6 +28,8 @@ namespace CACHE
 
         int Get(int key);
 
+        int SoftGet(int key);
+
         void Set(int key, int val);
 
     private:
