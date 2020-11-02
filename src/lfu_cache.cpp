@@ -47,7 +47,7 @@ namespace CACHE
         }
     }
 
-    std::pair<LFUCache::frq_itr, LFUCache::val_itr> LFUCache::Promote(int key, int val = -1)
+    std::pair<LFUCache::frq_itr, LFUCache::val_itr> LFUCache::Promote(int key, int val)
     {
         frq_itr f;
         val_itr v;

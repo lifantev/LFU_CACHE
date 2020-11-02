@@ -1,5 +1,5 @@
 
-#include "src/lfu_cache.hpp"
+#include "../src/lfu_cache.hpp"
 #include "gtest/gtest.h"
 
 // struct CacheFixture : public testing::Test

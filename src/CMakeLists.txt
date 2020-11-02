@@ -1,5 +1,5 @@
 
-cmake_minimum_required(Version 3.10)
+cmake_minimum_required(VERSION 3.10)
 
 project(lfu_cache VERSION 0.0.1 LANGUAGES C CXX)
 

@@ -1,19 +1,19 @@
 
-cmake_minimum_required(Version 3.10)
+cmake_minimum_required(VERSION 3.10)
 
 project(final VERSION 0.0.1 LANGUAGES C CXX)
 
 add_subdirectory(src)
-find_package(GTest REQUIRED)
-add_subdirectory(test)
+add_subdirectory(googletest)
 
-option(TEST OFF)
+#option(TEST "Enable testing" OFF)
 
-if (TEST)
-    add_executable(test test.cpp)
-    target_include_directories(test PRIVATE lfu_cache)
-    target_link_libraries(lfu_cache test GTest::GTest GTest::Main)
-else ()
-    add_executable(main main.cpp)
-    target_include_directories(main PRIVATE lfu_cache)
-    target_link_libraries(lfu_cache main)
+#if (TEST)
+    add_executable(testing test.cpp)
+    target_include_directories(testing PRIVATE lfu_cache)
+    target_link_libraries(testing PRIVATE gtest gtest_main)
+#else ()
+#    add_executable(main main.cpp)
+#    target_include_directories(main PRIVATE lfu_cache)
+#    target_link_libraries(main PRIVATE lfu_cache)
+#endif()
