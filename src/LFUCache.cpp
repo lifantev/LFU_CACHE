@@ -65,7 +65,7 @@ namespace CACHE
             cache_.erase(f);
 
         if (fnext == cache_.end() || fnext->freq != freq)
-            f = cache_.insert(fnext, LFUNode(freq));
+            f = cache_.insert(fnext, LRUNode(freq));
         else
             f = fnext;
 
@@ -91,7 +91,7 @@ namespace CACHE
         frq_itr f = cache_.begin();
 
         if (f == cache_.end() || f->freq != 1)
-            f = cache_.insert(f, LFUNode(1));
+            f = cache_.insert(f, LRUNode(1));
 
         val_itr v = f->vals.insert(f->vals.end(), {key, val});
         

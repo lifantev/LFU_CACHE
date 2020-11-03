@@ -13,18 +13,19 @@ namespace CACHE
 {
     class LFUCache final
     {
-    public:
-        struct LFUNode final
+    private:
+        struct LRUNode final
         {
             int freq;
             std::list<std::pair<int, int>> vals;
 
-            LFUNode(int f = 0) : freq(f) {}
+            LRUNode(int f = 0) : freq(f) {}
         };
 
-        using frq_itr = typename std::list<LFUNode>::iterator;
+        using frq_itr = typename std::list<LRUNode>::iterator;
         using val_itr = typename std::list<std::pair<int, int>>::iterator;
 
+    public:
         LFUCache(int capacity) : capacity_(capacity) {}
 
         int Get(int key);
@@ -33,6 +34,8 @@ namespace CACHE
 
         void Set(int key, int val);
 
+        void Set(int key) { Set(key, key); }
+
     private:
         std::pair<frq_itr, val_itr> Promote(int key, int val = -1);
 
@@ -40,9 +43,8 @@ namespace CACHE
 
         std::pair<frq_itr, val_itr> Insert(int key, int val);
 
-    private:
         int capacity_;
-        std::list<LFUNode> cache_;
+        std::list<LRUNode> cache_;
         std::unordered_map<int, std::pair<frq_itr, val_itr>> kv_;
     };
 } // namespace CACHE
