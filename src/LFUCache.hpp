@@ -1,6 +1,7 @@
 // lfu_cache.hpp
 
-#pragma once
+#ifndef LFU_CACHE_HPP
+#define LFU_CACHE_HPP
 
 #include <iostream>
 #include <unordered_map>
@@ -45,3 +46,5 @@ namespace CACHE
         std::unordered_map<int, std::pair<frq_itr, val_itr>> kv_;
     };
 } // namespace CACHE
+
+#endif // LFU_CACHE_HPP

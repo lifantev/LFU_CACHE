@@ -1,6 +1,6 @@
 
-#include "../src/lfu_cache.hpp"
-#include "gtest/gtest.h"
+#include "../src/LFUCache.hpp"
+#include <gtest/gtest.h>
 
 // struct CacheFixture : public testing::Test
 // {
@@ -46,7 +46,6 @@ TEST(Cache, CreatAndSimpleCache)
     lfu_cache.Set(3, 3);
     lfu_cache.Set(1, 1);
     lfu_cache.Set(2, 2);
-
     ASSERT_TRUE(lfu_cache.SoftGet(1) == -1);
     ASSERT_TRUE(lfu_cache.SoftGet(2) == 2);
     ASSERT_TRUE(lfu_cache.SoftGet(3) == 3);

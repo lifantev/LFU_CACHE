@@ -1,6 +1,6 @@
 // lfu_cache.cpp
 
-#include "lfu_cache.hpp"
+#include "LFUCache.hpp"
 
 namespace CACHE
 {
